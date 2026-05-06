@@ -883,7 +883,7 @@ import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebase
 
 const firebaseConfig = {
   // Copiez ici vos clés fournies par la console Firebase
-  databaseURL: "https://budget-cf572-default-rtdb.europe-west1.firebasedatabase.app",
+  databaseURL: "https://budget-cf572-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -937,12 +937,12 @@ let selectedNewEmoji = '💰';
 
 function saveState() {
   // On envoie tout le "state" sur le cloud au lieu du téléphone seul
-  set(ref(db, 'shared_budget/'), state);
+  set(ref(db, 'Budget/'), state);
 }
 
 function loadState() {
   // On écoute les changements en temps réel
-  onValue(ref(db, 'shared_budget/'), (snapshot) => {
+  onValue(ref(db, 'Budget/'), (snapshot) => {
     const data = snapshot.val();
     if (data) {
       state = data;
