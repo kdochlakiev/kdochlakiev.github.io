@@ -1504,25 +1504,38 @@ function showToast(msg) {
 // ═══════════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════════
+// On expose les fonctions utilisées par les onclick="..." du HTML.
+// Comme le script est maintenant un module, ces fonctions ne sont pas globales par défaut.
+Object.assign(window, {
+  navigate,
+  openAddTx,
+  saveTx,
+  setType,
+  selectCat,
+  openEditTx,
+  setEditType,
+  selectEditCat,
+  updateTx,
+  deleteTx,
+  closeModal,
+  openModal,
+  changePeriod,
+  statsChangePeriod,
+  openMonthSettings,
+  saveMonthSettings,
+  showCategoryManager,
+  openAddCat,
+  saveNewCat,
+  deleteCat,
+  pickEmoji,
+  confirmClearData,
+  exportData,
+  toggleFilter,
+  renderHistory
+});
+
 loadState();
 renderHome();
-  // On "sort" les fonctions du module pour que les boutons HTML puissent les voir
-window.navigate = navigate;
-window.openAddTx = openAddTx;
-window.saveAddTx = saveAddTx;
-window.setAddTxType = setAddTxType;
-window.selectAddTxCat = selectAddTxCat;
-window.closeModal = closeModal;
-window.changePeriod = changePeriod;
-window.openMonthSettings = openMonthSettings;
-window.saveStartDay = saveStartDay;
-window.showCategoryManager = showCategoryManager;
-window.addCategory = addCategory;
-window.deleteCategory = deleteCategory;
-window.confirmClearData = confirmClearData;
-window.exportData = exportData;
-window.toggleFilter = toggleFilter;
-window.renderHistory = renderHistory;
 </script>
 </body>
 </html>
